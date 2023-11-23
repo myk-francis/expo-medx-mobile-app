@@ -2,15 +2,16 @@ import { Platform, StatusBar, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { ScreensArray } from "../utils/constants";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { COLORS } from "../theme/theme";
+import { COLORS, FONTFAMILY } from "../theme/theme";
 import CustomDrawer1 from "./CustomDrawer1";
+import HomeTabs from "./HomeTabs";
 
 const Drawer = createDrawerNavigator();
 
 const DrawerScreen = () => {
   return (
     <View style={styles.container}>
-      <StatusBar barStyle={"dark-content"} backgroundColor={"white"} />
+      <StatusBar barStyle={"light-content"} backgroundColor={"black"} />
       <Text>Sup you lil bitch</Text>
     </View>
   );
@@ -23,6 +24,13 @@ const DrawerNav = () => {
         drawerStyle: styles.drawerStyles,
         drawerType: "front",
         swipeEdgeWidth: Platform.OS === "android" ? 180 : 0,
+        headerStyle: {
+          backgroundColor: COLORS.primaryBlackHex,
+        },
+        headerTintColor: "white",
+        headerTitleStyle: {
+          fontFamily: FONTFAMILY.poppins_semibold,
+        },
       }}
       drawerContent={(props: any) => <CustomDrawer1 {...props} />}
     >
@@ -30,7 +38,7 @@ const DrawerNav = () => {
         <Drawer.Screen
           key={i}
           name={item.route}
-          component={DrawerScreen}
+          component={item.route === "Home" ? HomeTabs : DrawerScreen}
           options={{
             // @ts-ignore
             item: item,

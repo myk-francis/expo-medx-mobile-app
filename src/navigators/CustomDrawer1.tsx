@@ -18,6 +18,7 @@ import Animated, {
 import Ionicons from "@expo/vector-icons/Ionicons";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { ProfileMenu, ProjectsArray } from "../utils/constants";
+import { COLORS, FONTFAMILY } from "../theme/theme";
 
 const DrawerItem = ({
   label,
@@ -77,7 +78,7 @@ const DrawerItemList = ({ state, descriptors, navigation, styles }: any) => {
         }
 
         const drawerItem = options.item;
-        const color = isFocused ? "#123" : "#999999";
+        const color = isFocused ? "white" : "#999999";
         const activeItemColor = isFocused ? "#60c5a8" : null;
 
         return (
@@ -263,7 +264,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   view: {
-    backgroundColor: "white",
+    backgroundColor: COLORS.primaryBlackHex,
     borderRadius: 10,
     marginHorizontal: 4,
     padding: 8 / 1.5,
@@ -289,9 +290,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   label: {
-    fontSize: 24,
-    color: "#123",
+    fontSize: 18,
+    color: "white",
     paddingHorizontal: 16,
+    fontFamily: FONTFAMILY.poppins_regular,
   },
   notificationBadge: {
     paddingVertical: 4,
@@ -310,11 +312,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#999999",
     marginVertical: 8,
   },
-  textContainer: {},
-  text: {},
+  textContainer: {
+    // color: "white",
+  },
+  text: {
+    color: "white",
+    fontFamily: FONTFAMILY.poppins_regular,
+  },
   headerTitle: {
     fontSize: 16,
-    color: "#123",
+    color: "white",
+    fontFamily: FONTFAMILY.poppins_regular,
   },
   profile: {
     marginVertical: 4,
@@ -326,6 +334,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f0f0f0",
   },
   profileText: {
-    color: "#123",
+    color: "white",
+    fontFamily: FONTFAMILY.poppins_regular,
   },
 });
